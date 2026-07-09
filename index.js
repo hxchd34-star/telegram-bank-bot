@@ -7,7 +7,7 @@ const bot = new TelegramBot(process.env.TOKEN, {
   polling: true,
 });
 
-const db = new Database("data.db");
+const db = new Database("/var/data/data.db");
 
 db.prepare(`
 CREATE TABLE IF NOT EXISTS users (
