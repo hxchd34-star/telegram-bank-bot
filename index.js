@@ -2,7 +2,7 @@ require("dotenv").config();
 
 const TelegramBot = require("node-telegram-bot-api");
 const Database = require("better-sqlite3");
-
+const transfer = require("./commands/transfer");
 const bot = new TelegramBot(process.env.TOKEN, {
   polling: true,
 });
