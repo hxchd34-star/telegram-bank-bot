@@ -24,7 +24,10 @@ module.exports = (bot, db, msg, amount, account) => {
 
   db.prepare("UPDATE users SET money=? WHERE id=?")
     .run(receiver.money + Number(amount), receiver.id);
-
+bot.sendMessage(
+  receiver.id,
+  `💸 وصلك تحويل بقيمة ${amount} ريال من ${sender.name}`
+);
   bot.sendMessage(
     msg.chat.id,
     `✅ تم تحويل ${amount} ريال إلى الحساب ${account}`
