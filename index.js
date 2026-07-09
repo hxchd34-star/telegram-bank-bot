@@ -90,3 +90,9 @@ bot.onText(/حسابي/, (msg) => {
 });
 
 console.log("Bot Started...");
+bot.onText(/^\/?حول (.+) (\d+)$/, (msg, match) => {
+  const account = match[1];
+  const amount = Number(match[2]);
+
+  transfer(bot, db, msg, amount, account);
+});
