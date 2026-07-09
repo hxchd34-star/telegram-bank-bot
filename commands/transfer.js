@@ -1,9 +1,9 @@
 module.exports = (bot, db, msg, amount, account) => {
   const sender = db.prepare("SELECT * FROM users WHERE id=?").get(msg.from.id);
 
-  if (!sender) {
-    return bot.sendMessage(msg.chat.id, "❌ أرسل /start أولاً");
-  }
+  if (!user) {
+  return bot.sendMessage(msg.chat.id, "❌ الحساب غير موجود");
+}
 
   if (!amount || isNaN(amount) || amount <= 0) {
     return bot.sendMessage(msg.chat.id, "❌ اكتب مبلغ صحيح");
