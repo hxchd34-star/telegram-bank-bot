@@ -12,8 +12,11 @@ module.exports = (bot, db, msg, amount, account) => {
   const receiver = db.prepare("SELECT * FROM users WHERE account=?").get(account);
 
   if (!receiver) {
-    return bot.sendMessage(msg.chat.id, "❌ الحساب غير موجود");
-  }
+  return bot.sendMessage(
+    msg.chat.id,
+    "❌ الحساب غير موجود.\n\nتأكد من رقم الحساب ثم حاول مرة أخرى."
+  );
+
 
   if (sender.money < amount) {
     return bot.sendMessage(msg.chat.id, "❌ رصيدك لا يكفي");
